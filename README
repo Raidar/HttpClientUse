@@ -1,6 +1,1 @@
-﻿Java test project: SerenityUse with HttpClient.
-
-  Project based on maven archetype:
-net.serenity-bdd:serenity-jbehave-archetype
-  Archetype description:
-Serenity automated acceptance testing project using Selenium 2, JUnit and JBehave
+﻿Java test project: HttpClient Use.
