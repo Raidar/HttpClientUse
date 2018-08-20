@@ -60,7 +60,7 @@
 		  <configuration>
 			<archive>
 			  <manifest>
-				<mainClass>org.raidar.app.WordChecker</mainClass>
+				<mainClass>org.raidar.app.WordCheckApp</mainClass>
 			  </manifest>
 			</archive>
 		  </configuration>
