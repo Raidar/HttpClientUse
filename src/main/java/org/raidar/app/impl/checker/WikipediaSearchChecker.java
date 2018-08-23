@@ -12,8 +12,6 @@ public class WikipediaSearchChecker extends WordSearchChecker {
 	private static final String SITE_SEARCH_FORMAT = "%s/%s%s";
 
 	private static final String LOG_SEARCH_URL = "URL: %s";
-	//private static final String LOG_SEARCH_BAD_WORD = "Bad word is '%s'";
-	//private static final String LOG_SEARCH_GOOD_WORD = "Good word is '%s'";
 
 	private static final String TEXT_SEARCH_BAD_WORD_TITLE = "<title>%s - Search results - Wikipedia</title>";
 	private static final String TEXT_SEARCH_BAD_WORD_INDICATOR =
@@ -40,8 +38,6 @@ public class WikipediaSearchChecker extends WordSearchChecker {
 			return false;
 		}
 
-		//logLine(String.format(LOG_SEARCH_BAD_WORD, word));
-
 		String url = getWordSearchURL(word);
 		logLine(String.format(LOG_SEARCH_URL, url));
 
@@ -58,8 +54,6 @@ public class WikipediaSearchChecker extends WordSearchChecker {
 		if (!super.checkForGoodWord(word)) {
 			return false;
 		}
-
-		//logLine(String.format(LOG_SEARCH_GOOD_WORD, word));
 
 		String url = getWordSearchURL(word);
 		logLine(String.format(LOG_SEARCH_URL, url));

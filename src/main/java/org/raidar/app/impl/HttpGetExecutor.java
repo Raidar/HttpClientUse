@@ -16,22 +16,22 @@ import java.io.IOException;
  */
 public class HttpGetExecutor {
 
-	//private static final String LOG_REQUEST_LINE = "Request line:\n%s";
+	private static final String LOG_REQUEST_LINE = "Request line:\n%s";
 	//private static final String LOG_RESPONSE_BODY = "Request body:\n%s";
-	//private static final String LOG_RESPONSE_CODE = "Request status code: %d";
+	private static final String LOG_RESPONSE_CODE = "Request status code: %d";
 
-	//protected static void logLine(String line) {
-	//	System.out.println(line);
-	//}
+	protected static void logLine(String line) {
+		System.out.println(line);
+	}
 
 	public String getUrlBody (String url) throws IOException {
 
 		try (CloseableHttpClient client = HttpClients.createDefault()) {
 			HttpGet request = new HttpGet(url);
-			//logLine(String.format(LOG_REQUEST_LINE, request.getRequestLine().toString()));
+			logLine(String.format(LOG_REQUEST_LINE, request.getRequestLine().toString()));
 
 			String body = client.execute(request, new ResponseHandlerCallback());
-			//logLine(String.format(LOG_RESPONSE_BODY, body));
+			//logLine(String.format(LOG_RESPONSE_BODY, body)); // DEBUG only
 
 			return body;
 		}
@@ -45,9 +45,9 @@ public class HttpGetExecutor {
 		public String handleResponse(HttpResponse response) throws ClientProtocolException, IOException {
 
 			int code = response.getStatusLine().getStatusCode();
-			//logLine(String.format(LOG_RESPONSE_CODE, code));
+			logLine(String.format(LOG_RESPONSE_CODE, code));
 
-			// TODO: Extract as method isSuccessfull of static class HTTP_STATUS_CODE.
+			// MAYBE: Extract as method isSuccessfull of static class HTTP_STATUS_CODE.
 			if ((code >= 200) && (code < 300)) {
 				HttpEntity entity = response.getEntity();
 				return (entity != null) ? EntityUtils.toString(entity) : null;
